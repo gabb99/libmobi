@@ -1867,6 +1867,11 @@ MOBI_RET mobi_build_opf(MOBIRawml *rawml, const MOBIData *m) {
     if (ret != MOBI_SUCCESS) { goto cleanup; }
     ret = mobi_xml_write_dcmeta_date(writer, (const OPFdate **) dc_meta->date);
     if (ret != MOBI_SUCCESS) { goto cleanup; }
+	
+		ret = mobi_xml_write_meta(writer, "cover", "resource00092");
+		if (ret != MOBI_SUCCESS) { goto cleanup; }
+//	<meta name="cover" content="image18" />
+
     //xml_ret = xmlTextWriterEndElement(writer);
     //if (xml_ret < 0) { goto cleanup; }
     /* <x-metadata/> */
